@@ -1,14 +1,115 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Reisebuchungs-Formular</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reisebuchungsportal</title>
 </head>
 <body>
+    <form action="https://it.bzz.ch/demo/formdata/index.php" method="post">
+        <fieldset>
+            <legend>Flughafen auswählen</legend>
+            <label for="abflughafen">Abflughafen:</label>
+            <select id="abflughafen" name="Abflughafen" required>
+                <optgroup label="Deutschland">
+                    <option value="Frankfurt">Frankfurt</option>
+                    <option value="München">München</option>
+                    <option value="Berlin">Berlin</option>
+                </optgroup>
+                <optgroup label="Österreich">
+                    <option value="Wien">Wien</option>
+                    <option value="Salzburg">Salzburg</option>
+                </optgroup>
+                <optgroup label="Italien">
+                    <option value="Rom">Rom</option>
+                    <option value="Mailand">Mailand</option>
+                    <option value="Venedig">Venedig</option>
+                </optgroup>
+                <optgroup label="Frankreich">
+                    <option value="Paris">Paris</option>
+                    <option value="Lyon">Lyon</option>
+                    <option value="Marseille">Marseille</option>
+                </optgroup>
+            </select>
+        </fieldset>
 
-<h1>Reisebuchungs-Formular</h1>
+        <fieldset>
+            <legend>Unterkunft auswählen</legend>
+            <p>Art der Unterkunft:</p>
+            <label for="hotel">Hotel</label>
+            <input type="radio" id="hotel" name="Unterkunft" value="Hotel" required>
+            <label for="ferienwohnung">Ferienwohnung</label>
+            <input type="radio" id="ferienwohnung" name="Unterkunft" value="Ferienwohnung">
+            <label for="hostel">Hostel</label>
+            <input type="radio" id="hostel" name="Unterkunft" value="Hostel">
+        </fieldset>
 
+        <fieldset>
+            <legend>Zusatzleistungen auswählen</legend>
+            <p>Bitte wählen Sie die gewünschten Zusatzleistungen:</p>
+            <label for="reiseversicherung">Reiseversicherung</label>
+            <input type="checkbox" id="reiseversicherung" name="zusatzleistungen[]" value="Reiseversicherung">
+            <label for="flughafentransfer">Flughafentransfer</label>
+            <input type="checkbox" id="flughafentransfer" name="zusatzleistungen[]" value="Flughafentransfer">
+            <label for="gepaeck">Zusätzliches Gepäck</label>
+            <input type="checkbox" id="gepaeck" name="zusatzleistungen[]" value="Zusätzliches Gepäck">
+        </fieldset>
 
+        <fieldset>
+            <legend>Reisedetails</legend>
+            <label for="startdatum">Reisebeginn:</label>
+            <input type="date" id="startdatum" name="Startdatum" required>
+            <label for="enddatum">Reiseende:</label>
+            <input type="date" id="enddatum" name="Enddatum" required>
+            <label for="reisedauer">Dauer der Reise (in Tagen):</label>
+            <input type="number" id="reisedauer" name="Reisedauer" min="1" max="21" required>
+            <label for="personenanzahl">Anzahl der reisenden Personen:</label>
+            <input type="number" id="personenanzahl" name="Personenanzahl" min="1" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Fluggesellschaft auswählen</legend>
+            <label for="fluggesellschaft">Fluggesellschaft:</label>
+            <select id="fluggesellschaft" name="Fluggesellschaft" required>
+                <option value="Lufthansa">Lufthansa</option>
+                <option value="Swiss">Swiss</option>
+                <option value="EasyJet">EasyJet</option>
+                <option value="Ryanair">Ryanair</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Optionale Dienstleistungen</legend>
+            <label for="priority-check-in">Priority Check-In</label>
+            <input type="checkbox" id="priority-check-in" name="optionale_dienstleistungen[]" value="Priority Check-In">
+            <label for="zus-handgepaeck">Zusätzliches Handgepäck</label>
+            <input type="checkbox" id="zus-handgepaeck" name="optionale_dienstleistungen[]" value="Zusätzliches Handgepäck">
+            <label for="mietwagen">Mietwagen</label>
+            <input type="checkbox" id="mietwagen" name="optionale_dienstleistungen[]" value="Mietwagen">
+        </fieldset>
+
+        <fieldset>
+            <legend>Reiseziel</legend>
+            <label for="reiseziel">Reiseziel:</label>
+            <input list="ziele" id="reiseziel" name="Reiseziel" required>
+            <datalist id="ziele">
+                <option value="New York">
+                <option value="London">
+                <option value="Paris">
+                <option value="Tokyo">
+                <option value="Sydney">
+            </datalist>
+        </fieldset>
+
+        <fieldset>
+            <legend>Kontaktdaten</legend>
+            <label for="email">E-Mail-Adresse:</label>
+            <input type="email" id="email" name="Email" required>
+        </fieldset>
+
+        <button type="reset">Zurücksetzen</button>
+        <button type="submit">Buchung abschicken</button>
+    </form>
 </body>
 </html>
+
